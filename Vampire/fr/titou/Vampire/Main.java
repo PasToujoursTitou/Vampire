@@ -25,16 +25,19 @@ public class Main extends JavaPlugin implements Listener{
 		
 		Player player = event.getEntity().getKiller();
 		Boolean msg = getConfig().getBoolean("msg");
-		
-		if(player.hasPermission("vampire.effect")) {
-			if(player.getHealth() < 20) {			
-				if(msg == true) {
-					player.setHealth(20);
-					player.sendMessage("§d[Vampire] health has been restored");
-				}else {
-					player.setHealth(20);
-				}	
+		if(player instanceof Player) {
+			if(player.hasPermission("vampire.effect")) {
+				if(player.getHealth() < 20) {			
+					if(msg == true) {
+						player.setHealth(20);
+						player.sendMessage("§d[Vampire] health has been restored");
+					}else {
+						player.setHealth(20);
+					}	
+				}
 			}
+			
+			
 		}
 	}
 }
